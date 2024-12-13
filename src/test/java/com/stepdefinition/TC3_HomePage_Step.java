@@ -34,7 +34,7 @@ public class TC3_HomePage_Step {
 
 	@When("user click to add to cart and proceed the product")
 	public void user_click_to_add_to_cart_and_proceed_the_product() throws InterruptedException {
-		manager.homepage().addToCart();
+		manager.homepage().cartbutton();
 	}
 
 	@Then("verify the prize money and proceed to product {string}")
@@ -129,7 +129,7 @@ public class TC3_HomePage_Step {
 	}
 
 	@Then("user check the size correct {string}")
-	public void user_check_the_size_correct(String string) {
+	public void user_check_the_size_correct(String string) throws InterruptedException {
 		String gettextprize = manager.homepage().gettextprize();
 		Assert.assertEquals(string, gettextprize);
 	}

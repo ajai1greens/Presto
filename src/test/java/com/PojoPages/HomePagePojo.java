@@ -32,15 +32,15 @@ public class HomePagePojo extends BaseClass {
 	private WebElement gettext;
 	@FindBy(xpath = "//a[contains(text(),'Black')]")
 	private WebElement scrolldown;
-	@FindBy(xpath = "(//i[@class='material-icons shopping-cart'])[2]")
+	@FindBy(xpath = "//button[@class='btn btn-primary add-to-cart']//self::button[@type='submit']")
 	private WebElement addToCart;
-	@FindBy(xpath = "//*[@class='material-icons rtl-no-flip']//parent::a[@class='btn btn-primary']")
+	@FindBy(xpath = "(//a[@class='btn btn-primary'])[2]")
 	private WebElement addtocart2;
 	@FindBy(xpath = "//a[text()='Hummingbird printed t-shirt']")
 	private WebElement clickbtn1;
 	@FindBy(xpath = "//a[text()='Hummingbird printed sweater']")
 	private WebElement womendressclick;
-	@FindBy(xpath = "//a[contains(text(),'Proceed to checkout')]//self::a[@class='btn btn-primary']")
+	@FindBy(xpath = "//a[contains(text(),'Proceed to checkout')]")
 	private WebElement addtoCart3;
 	@FindBy(xpath = "//span[@class='product-price']")
 	private WebElement getprizetxt;
@@ -119,8 +119,7 @@ public class HomePagePojo extends BaseClass {
 	private WebElement samplepic;
 	@FindBy(xpath = "//div[@id='carousel']")
 	private WebElement samplepic2;
-	
-	
+
 	public void withoutsign() throws InterruptedException {
 		Thread.sleep(3000);
 		frameSwitchByElement(iframe);
@@ -204,7 +203,8 @@ public class HomePagePojo extends BaseClass {
 		artproduct7.click();
 	}
 
-	public String gettextprize() {
+	public String gettextprize() throws InterruptedException {
+		Thread.sleep(3000);
 		addToCart.click();
 		String text = gettextprize.getText();
 		return text;
@@ -323,10 +323,6 @@ public class HomePagePojo extends BaseClass {
 
 	}
 
-	public void prize() {
-
-	}
-
 	public void ClickAccessAndFilter2() {
 		frameSwitchByElement(iframe);
 		accbtn.click();
@@ -366,15 +362,17 @@ public class HomePagePojo extends BaseClass {
 
 	}
 
-	public void addToCart() throws InterruptedException {
-		frameSwitchByElement(iframe);
-		addToCart.click();
+	public void cartbutton() throws InterruptedException {
+		Thread.sleep(3000);
+//		addToCart.click();
+		add.click();
 		Thread.sleep(3000);
 		addtocart2.click();
-
+	
 	}
 
 	public void proceed() throws InterruptedException {
+		
 		Thread.sleep(3000);
 		addtoCart3.click();
 	}
@@ -409,6 +407,7 @@ public class HomePagePojo extends BaseClass {
 	}
 
 	public void clickproceedafterverify() throws InterruptedException {
+
 		addtocart2.click();
 		addtoCart3.click();
 
@@ -441,10 +440,12 @@ public class HomePagePojo extends BaseClass {
 	}
 
 	public void quantity() throws InterruptedException {
+		Thread.sleep(8000);
 		quantity.click();
 		add.click();
 		Thread.sleep(3000);
-		addtoCart3.click();
+		addtocart2.click();
+		Thread.sleep(3000);
 		addtoCart3.click();
 	}
 
@@ -456,7 +457,7 @@ public class HomePagePojo extends BaseClass {
 
 		add.click();
 		Thread.sleep(3000);
-		addtoCart3.click();
+		addtocart2.click();
 		addtoCart3.click();
 	}
 
